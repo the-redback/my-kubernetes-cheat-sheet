@@ -49,7 +49,7 @@ http://192.168.99.100:30620
 {"message":"Successful request","result":5}⏎   
 ```
 
-# Logs >>
+# Logs
 
 ```console
 [maruf@AppsCode ~]$ kubectl get deployments
