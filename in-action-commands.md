@@ -1,24 +1,37 @@
+```console
 > minikube start
+```
 
 # create k8s deployment and service from yaml
+
+```console
 > kubectl create -f grpc-deployment.yaml
 > kubectl create -f grpc-service.yaml
+```
 
 # get address of service 
+
+```
 > minikube service my-service --url
+```
 
 # send data 
-> curl --data "{\"name\": \"pc1\", \"a\":2,\"b\":3}" http://192.168.99.100:30620/echo
 
+```console
+> curl --data "{\"name\": \"pc1\", \"a\":2,\"b\":3}" http://192.168.99.100:30620/echo
+```
 
 # log of pods
+
+```console
 > kubectl get pods
 > kubectl logs <pods id>
-
+```
 
 
 # Bash Outputs:
 
+```console
 [maruf@AppsCode ~/go/src/GoglandProjects/kubernetes-sample]$ kubectl create -f grpc-deployment.yaml 
 deployment "grpc-sample-yaml" created
 [maruf@AppsCode ~/go/src/GoglandProjects/kubernetes-sample]$ kubectl create -f grpc-service.yaml 
@@ -34,10 +47,11 @@ http://192.168.99.100:30620
 {"message":"Successful request","result":5}⏎                                                                       
 [maruf@AppsCode ~]$ curl --data "{\"name\": \"pc5\", \"a\":2,\"b\":3}" http://192.168.99.100:30620/echo
 {"message":"Successful request","result":5}⏎   
-
+```
 
 # Logs >>
 
+```console
 [maruf@AppsCode ~]$ kubectl get deployments
 NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 grpc-sample-yaml   3         3         3            3           16m
@@ -78,3 +92,4 @@ grpc-sample-yaml-1513588-bskn4   1/1       Running   0          2m
 2017/05/17 13:34:19 Request from :pc3, where numbers are 2 3
 2017/05/17 13:34:23 Request from :pc5, where numbers are 2 3
 [maruf@AppsCode ~]$ 
+```
